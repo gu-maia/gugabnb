@@ -1,0 +1,7 @@
+<% if flash[:errors] %>
+  <% flash[:errors].each do |error| %>
+    <div class="p-4 m-3 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+      <%= error %>
+    </div>
+  <% end %>
+<% end %>

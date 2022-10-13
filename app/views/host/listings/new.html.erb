@@ -1,0 +1,50 @@
+<h2 class="m-3 pb-7 font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">Create new listing</h2>
+
+<%= render partial: "shared/flash_messages" %>
+
+<%= form_with(model: [:host, @listing], local:true ) do |f| %>
+  <div class="m-3">
+    <%= f.label "Short description", class: "standard_l" %>
+    <%= f.text_field :short_description, class: "text_f", placeholder: "How would you briefly describe your place?"%>
+  </div>
+
+
+  <div class="m-3">
+    <%= f.label "Guest limit", class: "standard_l" %>
+    <%= f.text_field :guests, class: "text_f", placeholder: "How many guests can your hostees bring? "%>
+  </div>
+
+  <div class="m-3">
+    <%= f.label "Address Line 1", class: "standard_l" %>
+    <%= f.text_field :address_line1, class: "text_f" %>
+  </div>
+
+  <div class="m-3">
+    <%= f.label "Address Line 2", class: "standard_l" %>
+    <%= f.text_field :address_line2, class: "text_f" %>
+  </div>
+  <div class="grid md:grid-cols-2 md:gap-6">
+    <div class="m-3">
+      <%= f.label "city", class: "standard_l" %>
+      <%= f.text_field :city, class: "text_f" %>
+    </div>
+    
+    <div class="m-3">
+      <%= f.label "state", class: "standard_l" %>
+      <%= f.text_field :state, class: "text_f" %>
+    </div>
+  </div>
+
+  <div class="grid md:grid-cols-2 md:gap-6">
+    <div class="m-3">
+      <%= f.label "postal_code", class: "standard_l" %>
+      <%= f.text_field :postal_code, class: "text_f" %>
+    </div>
+
+    <div class="m-3">
+      <%= f.label "country", class: "standard_l" %>
+      <%= f.text_field :country, class: "text_f" %>
+    </div>
+  </div>
+  <%= f.submit "Submit", class: "standard_b" %>
+<% end %>
