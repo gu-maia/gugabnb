@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_13_201811) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_14_132343) do
+  create_table "beds", force: :cascade do |t|
+    t.integer "bed_size"
+    t.integer "room_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_beds_on_room_id"
+  end
+
   create_table "listings", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "short_description"
@@ -30,6 +38,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_13_201811) do
     t.index ["user_id"], name: "index_listings_on_user_id"
   end
 
+  create_table "rooms", force: :cascade do |t|
+    t.integer "listing_id", null: false
+    t.integer "room_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["listing_id"], name: "index_rooms_on_listing_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -42,5 +58,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_13_201811) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "beds", "rooms"
   add_foreign_key "listings", "users"
+  add_foreign_key "rooms", "listings"
 end
