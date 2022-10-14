@@ -5,7 +5,7 @@ class Host::ListingsController < ApplicationController
     @listing = current_user.listings.new(listing_params)
 
     if @listing.save
-      redirect_to host_listing_path(@listing)
+      redirect_to host_listings_path
     else
       flash.now[:errors] = @listing.errors.full_messages
       render :new, status: :unprocessable_entity

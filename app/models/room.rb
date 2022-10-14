@@ -1,6 +1,6 @@
 class Room < ApplicationRecord
   belongs_to :listing
-  has_many :beds, dependent: :detroy
+  has_many :beds, dependent: :destroy
 
   enum room_type: {
     single_room: 0,
