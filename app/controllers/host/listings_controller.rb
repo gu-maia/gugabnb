@@ -1,4 +1,6 @@
 class Host::ListingsController < ApplicationController
+  before_action :authenticate_user!
+  
   def create
     @listing = current_user.listings.new(listing_params)
 

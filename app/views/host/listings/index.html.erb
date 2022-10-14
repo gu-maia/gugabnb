@@ -1,1 +1,194 @@
-<%= @listings.to_json %>
+<div class="gap-3 grid md:grid-cols-2 lg:grid-cols-3 place-content-center">
+  <div class="w-80 bg-slate-50 rounded p-3 transform transition-transform duration-300 ease-in-out hover:-translate-y-1">
+    <img class="h-52 w-full rounded object-cover" src="https://i.imgur.com/5yeBVeM.jpeg" />
+    <p class="text-xs font-bold text-gray-400 mt-4"><%= @listings.first.short_description %></p>
+    <ul class="mt-3 flex flex-wrap">
+      <div class="mr-auto flex">
+        <li>
+          <a href="#" class="flex text-gray-400 hover:text-gray-600">
+            <svg class="mr-0.5" style="width:20px;height:20px" viewBox="0 0 24 24">
+              <path fill="currentColor" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+            </svg>
+            <p class="leading-tight">3</p>
+          </a>
+        </li>
+        <li class="ml-2">
+          <a href="#" class="flex text-gray-400 hover:text-gray-600">
+            <svg class="mr-0.5" style="width:20px;height:20px" viewBox="0 0 24 24">
+              <path fill="currentColor" d="M21,12L14,5V9C7,10 4,15 3,20C5.5,16.5 9,14.9 14,14.9V19L21,12Z" />
+            </svg>
+            <p class="leading-tight">1</p>
+          </a>
+        </li>
+      </div>
+      <li class="mr-2">
+        <a href="#" class="flex text-gray-400 hover:text-gray-600">
+          <svg class="mr-0.5" style="width:20px;height:20px" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z" />
+          </svg>
+        <p class="leading-tight">24</p>
+        </a>
+      </li>
+      <li class="mr-2">
+        <a href="#" class="flex text-gray-400 hover:text-gray-600">
+          <svg class="mr-0.5" style="width:20px;height:20px" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M9,22A1,1 0 0,1 8,21V18H4A2,2 0 0,1 2,16V4C2,2.89 2.9,2 4,2H20A2,2 0 0,1 22,4V16A2,2 0 0,1 20,18H13.9L10.2,21.71C10,21.9 9.75,22 9.5,22V22H9Z" />
+          </svg>
+        <p class="leading-tight">3</p>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="flex text-gray-400 hover:text-red-600">
+          <svg class="mr-0.5" style="width:20px;height:20px" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z" />
+          </svg>
+        <p class="leading-tight">3</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="w-80 bg-slate-50 rounded p-3 transform transition-transform duration-300 ease-in-out hover:-translate-y-1">
+    <img class="h-52 w-full rounded object-cover" src="https://images.squarespace-cdn.com/content/v1/587b4908cd0f68a2e5d09056/1555883246289-FLXRM3N47H680XZ2R7YB/Brazil-Beach-House-Hotel-For-Sale-Rio-De-Janeiro.png" />
+    <p class="text-xs font-bold text-gray-400 mt-4"><%= @listings.first.short_description %></p>
+    <ul class="mt-3 flex flex-wrap">
+      <div class="mr-auto flex">
+        <li>
+          <a href="#" class="flex text-gray-400 hover:text-gray-600">
+            <svg class="mr-0.5" style="width:20px;height:20px" viewBox="0 0 24 24">
+              <path fill="currentColor" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+            </svg>
+            <p class="leading-tight">3</p>
+          </a>
+        </li>
+        <li class="ml-2">
+          <a href="#" class="flex text-gray-400 hover:text-gray-600">
+            <svg class="mr-0.5" style="width:20px;height:20px" viewBox="0 0 24 24">
+              <path fill="currentColor" d="M21,12L14,5V9C7,10 4,15 3,20C5.5,16.5 9,14.9 14,14.9V19L21,12Z" />
+            </svg>
+            <p class="leading-tight">1</p>
+          </a>
+        </li>
+      </div>
+      <li class="mr-2">
+        <a href="#" class="flex text-gray-400 hover:text-gray-600">
+          <svg class="mr-0.5" style="width:20px;height:20px" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z" />
+          </svg>
+        <p class="leading-tight">24</p>
+        </a>
+      </li>
+      <li class="mr-2">
+        <a href="#" class="flex text-gray-400 hover:text-gray-600">
+          <svg class="mr-0.5" style="width:20px;height:20px" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M9,22A1,1 0 0,1 8,21V18H4A2,2 0 0,1 2,16V4C2,2.89 2.9,2 4,2H20A2,2 0 0,1 22,4V16A2,2 0 0,1 20,18H13.9L10.2,21.71C10,21.9 9.75,22 9.5,22V22H9Z" />
+          </svg>
+        <p class="leading-tight">3</p>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="flex text-gray-400 hover:text-red-600">
+          <svg class="mr-0.5" style="width:20px;height:20px" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z" />
+          </svg>
+        <p class="leading-tight">3</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="w-80 bg-slate-50 rounded p-3 transform transition-transform duration-300 ease-in-out hover:-translate-y-1">
+    <img class="h-52 w-full rounded object-cover" src="https://www.rocketmortgage.com/resources-cmsassets/RocketMortgage.com/Article_Images/Large_Images/TypesOfHomes/types-of-homes-hero.jpg" />
+    <p class="text-xs font-bold text-gray-400 mt-4"><%= @listings.first.short_description %></p>
+    <ul class="mt-3 flex flex-wrap">
+      <div class="mr-auto flex">
+        <li>
+          <a href="#" class="flex text-gray-400 hover:text-gray-600">
+            <svg class="mr-0.5" style="width:20px;height:20px" viewBox="0 0 24 24">
+              <path fill="currentColor" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+            </svg>
+            <p class="leading-tight">3</p>
+          </a>
+        </li>
+        <li class="ml-2">
+          <a href="#" class="flex text-gray-400 hover:text-gray-600">
+            <svg class="mr-0.5" style="width:20px;height:20px" viewBox="0 0 24 24">
+              <path fill="currentColor" d="M21,12L14,5V9C7,10 4,15 3,20C5.5,16.5 9,14.9 14,14.9V19L21,12Z" />
+            </svg>
+            <p class="leading-tight">1</p>
+          </a>
+        </li>
+      </div>
+      <li class="mr-2">
+        <a href="#" class="flex text-gray-400 hover:text-gray-600">
+          <svg class="mr-0.5" style="width:20px;height:20px" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z" />
+          </svg>
+        <p class="leading-tight">24</p>
+        </a>
+      </li>
+      <li class="mr-2">
+        <a href="#" class="flex text-gray-400 hover:text-gray-600">
+          <svg class="mr-0.5" style="width:20px;height:20px" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M9,22A1,1 0 0,1 8,21V18H4A2,2 0 0,1 2,16V4C2,2.89 2.9,2 4,2H20A2,2 0 0,1 22,4V16A2,2 0 0,1 20,18H13.9L10.2,21.71C10,21.9 9.75,22 9.5,22V22H9Z" />
+          </svg>
+        <p class="leading-tight">3</p>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="flex text-gray-400 hover:text-red-600">
+          <svg class="mr-0.5" style="width:20px;height:20px" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z" />
+          </svg>
+        <p class="leading-tight">3</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="w-80 bg-slate-50 rounded p-3 transform transition-transform duration-300 ease-in-out hover:-translate-y-1">
+    <img class="h-52 w-full rounded object-cover" src="https://www.rocketmortgage.com/resources-cmsassets/RocketMortgage.com/Article_Images/Large_Images/TypesOfHomes/types-of-homes-hero.jpg" />
+    <p class="text-xs font-bold text-gray-400 mt-4"><%= @listings.first.short_description %></p>
+    <ul class="mt-3 flex flex-wrap">
+      <div class="mr-auto flex">
+        <li>
+          <a href="#" class="flex text-gray-400 hover:text-gray-600">
+            <svg class="mr-0.5" style="width:20px;height:20px" viewBox="0 0 24 24">
+              <path fill="currentColor" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+            </svg>
+            <p class="leading-tight">3</p>
+          </a>
+        </li>
+        <li class="ml-2">
+          <a href="#" class="flex text-gray-400 hover:text-gray-600">
+            <svg class="mr-0.5" style="width:20px;height:20px" viewBox="0 0 24 24">
+              <path fill="currentColor" d="M21,12L14,5V9C7,10 4,15 3,20C5.5,16.5 9,14.9 14,14.9V19L21,12Z" />
+            </svg>
+            <p class="leading-tight">1</p>
+          </a>
+        </li>
+      </div>
+      <li class="mr-2">
+        <a href="#" class="flex text-gray-400 hover:text-gray-600">
+          <svg class="mr-0.5" style="width:20px;height:20px" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z" />
+          </svg>
+        <p class="leading-tight">24</p>
+        </a>
+      </li>
+      <li class="mr-2">
+        <a href="#" class="flex text-gray-400 hover:text-gray-600">
+          <svg class="mr-0.5" style="width:20px;height:20px" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M9,22A1,1 0 0,1 8,21V18H4A2,2 0 0,1 2,16V4C2,2.89 2.9,2 4,2H20A2,2 0 0,1 22,4V16A2,2 0 0,1 20,18H13.9L10.2,21.71C10,21.9 9.75,22 9.5,22V22H9Z" />
+          </svg>
+        <p class="leading-tight">3</p>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="flex text-gray-400 hover:text-red-600">
+          <svg class="mr-0.5" style="width:20px;height:20px" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z" />
+          </svg>
+        <p class="leading-tight">3</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
