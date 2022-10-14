@@ -27,6 +27,6 @@ class Host::ListingsController < ApplicationController
   end
 
   def listing_params
-    params.require(:listing).permit(:user_id, :short_description, :long_description, :status, :guests, :address_line1, :address_line2, :city, :state, :postal_code, :country)
+    params.require(:listing).permit(:user_id, :short_description, :long_description, :status, :guests, :address_line1, :address_line2, :city, :state, :postal_code, :country, :images)
   end
 end
