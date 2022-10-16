@@ -1,5 +1,5 @@
 class Listing < ApplicationRecord
-  belongs_to :user
+  belongs_to :host, foreign_key: 'user_id', class_name: 'User'
   has_many :rooms, dependent: :destroy
   has_many_attached :images
   
