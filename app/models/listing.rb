@@ -4,9 +4,9 @@ class Listing < ApplicationRecord
   has_many :pricings, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_many_attached :images
-  
+
   validates :short_description, presence: true
-  validates :guests, numericality: {only_integer: true, in: 1..100}
+  validates :guests, numericality: { only_integer: true, in: 1..100 }
 
   enum status: {
     draft: 0,
@@ -14,14 +14,14 @@ class Listing < ApplicationRecord
   }
 
   def active_pricing
-    self.pricings.where(status: :active).first
+    pricings.where(status: :active).first
   end
 
   def star_average
-    self.reviews.average(:stars).round(2).to_s
+    reviews.average(:stars).round(2).to_s
   end
 
   def review_count
-    self.reviews.size
+    reviews.size
   end
 end

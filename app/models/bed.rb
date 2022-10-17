@@ -10,5 +10,4 @@ class Bed < ApplicationRecord
     california_bed: 5,
     crib: 6
   }
-
 end

@@ -1,6 +1,6 @@
 class ListingsController < ApplicationController
   # before_action :authenticate_user!
-  
+
   def index
     @listings = Listing.where(status: :draft)
   end
@@ -9,4 +9,3 @@ class ListingsController < ApplicationController
     @listing = Listing.find(params[:id])
   end
 end
-
