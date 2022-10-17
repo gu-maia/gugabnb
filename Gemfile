@@ -80,3 +80,6 @@ end
 gem 'devise', '~> 4.8'
 
 gem 'pg', '~> 1.4'
+
+gem 'pay', '~> 5.0'
+gem 'stripe', '~> 7.1'
