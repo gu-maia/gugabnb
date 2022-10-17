@@ -13,7 +13,7 @@
   u = User.create!(email: Faker::Internet.email, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password: Faker::Internet.password(min_length: 8))
 
   rand(1..3).times do |i|
-    l = Listing.create!(user_id: u.id, short_description: Faker::Lorem.sentence(word_count: rand(3..7)), long_description: Faker::Lorem.sentences(number: 3), status: [:draft, :archived].sample, guests: rand(1..10), city: Faker::Address.city, state: Faker::Address.state, postal_code: Faker::Number.number(digits: 5), country: "US", lat: Faker::Address.latitude, lng: Faker::Address.longitude, address_line1: Faker::Address.street_address, address_line2: Faker::Address.secondary_address)
+    l = Listing.create!(user_id: u.id, short_description: Faker::Lorem.sentence(word_count: rand(3..7)), long_description: Faker::Lorem.sentence(word_count: rand(15..25)), status: [:draft, :archived].sample, guests: rand(1..10), city: Faker::Address.city, state: Faker::Address.state, postal_code: Faker::Number.number(digits: 5), country: "US", lat: Faker::Address.latitude, lng: Faker::Address.longitude, address_line1: Faker::Address.street_address, address_line2: Faker::Address.secondary_address)
 
     p = Pricing.create!(listing_id: l.id, value: Faker::Number.number(digits:3), cleaning_fee: Faker::Number.number(digits: 2), status: :active) 
 
@@ -33,7 +33,7 @@ end
   u = User.create!(email: "dev+#{i}@dev.com" , first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password: "password")
 
   rand(1..3).times do |i|
-    l = Listing.create!(user_id: u.id, short_description: Faker::Lorem.sentence(word_count: rand(3..7)), long_description: Faker::Lorem.sentences(number: 3), status: [:draft, :archived].sample, guests: rand(1..10), city: Faker::Address.city, state: Faker::Address.state, postal_code: Faker::Number.number(digits: 5), country: "US", lat: Faker::Address.latitude, lng: Faker::Address.longitude, address_line1: Faker::Address.street_address, address_line2: Faker::Address.secondary_address)
+    l = Listing.create!(user_id: u.id, short_description: Faker::Lorem.sentence(word_count: rand(3..7)), long_description: Faker::Lorem.sentence(word_count: rand(15..25)), status: [:draft, :archived].sample, guests: rand(1..10), city: Faker::Address.city, state: Faker::Address.state, postal_code: Faker::Number.number(digits: 5), country: "US", lat: Faker::Address.latitude, lng: Faker::Address.longitude, address_line1: Faker::Address.street_address, address_line2: Faker::Address.secondary_address)
 
     p = Pricing.create!(listing_id: l.id, value: Faker::Number.number(digits:3), cleaning_fee: Faker::Number.number(digits: 2), status: :active) 
 
