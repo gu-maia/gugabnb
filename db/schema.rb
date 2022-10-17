@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_14_214250) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_16_194005) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -69,6 +69,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_14_214250) do
     t.index ["user_id"], name: "index_listings_on_user_id"
   end
 
+  create_table "pricings", force: :cascade do |t|
+    t.decimal "value"
+    t.decimal "cleaning_fee"
+    t.integer "status"
+    t.bigint "listing_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["listing_id"], name: "index_pricings_on_listing_id"
+  end
+
   create_table "rooms", force: :cascade do |t|
     t.integer "listing_id", null: false
     t.integer "room_type"
@@ -85,6 +95,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_14_214250) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -93,5 +105,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_14_214250) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "beds", "rooms"
   add_foreign_key "listings", "users"
+  add_foreign_key "pricings", "listings"
   add_foreign_key "rooms", "listings"
 end
