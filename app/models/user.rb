@@ -31,6 +31,6 @@ class User < ApplicationRecord
 
   # Has to be changed. Reviews should be linked through a booking. Will leave like that for now to tidy up the frontend
   def reviews_as_host_count
-    reviews.size 
+    reviews.size
   end
 end

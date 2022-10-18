@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class Booking < ApplicationRecord
   belongs_to :listing
-  belongs_to :guest, class_name: "User"
+  belongs_to :guest, class_name: 'User'
   has_one :host, through: :listing
 
   validate :guest_count_must_be_within_listing_limit
