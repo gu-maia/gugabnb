@@ -10,6 +10,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :listings
+  has_many :reviews, through: :listings
 
   def full_name
     "#{first_name} #{last_name}"
@@ -26,5 +27,10 @@ class User < ApplicationRecord
         user_id: id # or pay_customer.owner_id
       }
     }
+  end
+
+  # Has to be changed. Reviews should be linked through a booking. Will leave like that for now to tidy up the frontend
+  def reviews_as_host_count
+    reviews.size 
   end
 end

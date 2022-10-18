@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   end
 
   resources :listings
+
+  # User profile
+  get '/profile/:id', to: 'profiles#show', as: 'profile'
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
