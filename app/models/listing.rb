@@ -5,6 +5,7 @@ class Listing < ApplicationRecord
   has_many :rooms, dependent: :destroy
   has_many :pricings, dependent: :destroy
   has_many :reviews, dependent: :destroy
+  has_many :bookings, dependent: :destroy
   has_many_attached :images
 
   validates :short_description, presence: true
