@@ -1,5 +1,5 @@
-class BookingsController < ApplicationController
+# frozen_string_literal: true
 
-def create
-end
+class BookingsController < ApplicationController
+  def create; end
 end

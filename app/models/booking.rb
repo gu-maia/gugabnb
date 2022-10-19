@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class Booking < ApplicationRecord
   belongs_to :listing
-  belongs_to :guest, class_name: "User"
+  belongs_to :guest, class_name: 'User'
   has_one :host, through: :listing
 
   validate :guest_count_must_be_within_listing_limit
@@ -17,24 +19,24 @@ class Booking < ApplicationRecord
     checkout_session.url
   end
 
-  def checkout_session 
+  def checkout_session
     listing.maybe_create_stripe_product
 
     Stripe::Checkout::Session.create({
-      success_url: 'https://example.com/success',
-      cancel_url: 'https://example.com/cancel',
-      line_items: [
-        {
-          price_data: {
-            currency: "BRL",
-            product: listing.product_id,
-            unit_amount: listing.active_pricing.value_in_cents,
-          },
-          quantity: distance_of_time_in_days
-        },
-      ],
-      mode: 'payment',
-    })
+                                       success_url: 'https://example.com/success',
+                                       cancel_url: 'https://example.com/cancel',
+                                       line_items: [
+                                         {
+                                           price_data: {
+                                             currency: 'BRL',
+                                             product: listing.product_id,
+                                             unit_amount: listing.active_pricing.value_in_cents
+                                           },
+                                           quantity: distance_of_time_in_days
+                                         }
+                                       ],
+                                       mode: 'payment'
+                                     })
   end
 
   def checkout_session_url
