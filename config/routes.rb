@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
 
   resources :listings
+  resources :bookings
 
   # User profile
   get '/profile/:id', to: 'profiles#show', as: 'profile'

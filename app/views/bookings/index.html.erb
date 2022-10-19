@@ -1,0 +1,15 @@
+<%= tag.meta name: "stripe-key", content: Pay::Stripe.public_key %>
+<script src="https://js.stripe.com/v3/" defer></script>
+
+<%= form_with url: bookings_path,
+  id: "payment-form",
+  data: {
+    payment_intent: @payment_intent
+  } do |form| %>
+
+  <label>Credit or debit card</label>
+
+  <div id="card-element" class="field"></div>
+
+  <%= form.submit %>
+<% end %>

@@ -27,4 +27,18 @@ class Listing < ApplicationRecord
   def review_count
     reviews.size
   end
+
+  def maybe_create_stripe_product(activity_status = true)
+    return if !self.product_id.blank?
+
+    response = Stripe::Product.create({
+      name: "listing_#{id}",
+      active: activity_status,
+      metadata: {
+        listing_id: id
+      }
+    })
+
+    update(product_id: response.id)
+  end
 end

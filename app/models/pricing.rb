@@ -12,4 +12,8 @@ class Pricing < ApplicationRecord
     active: 0,
     inactive: 1
   }
+
+  def value_in_cents
+    (value * 100).to_i
+  end
 end
