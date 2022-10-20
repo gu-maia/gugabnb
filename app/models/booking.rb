@@ -38,8 +38,4 @@ class Booking < ApplicationRecord
                                        mode: 'payment'
                                      })
   end
-
-  def checkout_session_url
-    checkout_session.url
-  end
 end
