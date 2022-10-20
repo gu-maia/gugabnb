@@ -11,9 +11,14 @@ class User < ApplicationRecord
 
   has_many :listings
   has_many :reviews, through: :listings
+  has_many :bookings_as_guest, foreign_key: 'guest_id', class_name: 'Booking'
 
   def full_name
     "#{first_name} #{last_name}"
+  end
+
+  def ongoing_bookings(listing)
+    bookings_as_guest.where(listing: listing, status: [:pending_payment, :payment_approved, :host_approval_and_payment_complete])
   end
 
   def stripe_attributes(pay_customer)

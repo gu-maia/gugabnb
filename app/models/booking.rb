@@ -6,6 +6,19 @@ class Booking < ApplicationRecord
   has_one :host, through: :listing
 
   validate :guest_count_must_be_within_listing_limit
+  validate :no_booking_overlap
+
+  enum status: {
+    inactive: 0,
+    pending_payment: 1,
+    payment_approved: 2,
+    host_approval_and_payment_complete: 3,
+    finished: 4
+  }
+
+  def no_booking_overlap
+    errors.add(:base, "This period is not available. Check the listing calendar") if listing.bookings.where("? <= end_date and start_date <= ?", start_date, end_date).any?
+  end
 
   def guest_count_must_be_within_listing_limit
     errors.add(:guests, "can't be outside the limit defined by the host.") unless (1..listing.guests).include?(guests)

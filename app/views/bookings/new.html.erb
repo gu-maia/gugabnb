@@ -1,42 +1,50 @@
-<div>
-  <h1 class="text-2xl font-semibold">Request a book</h1>
-</div>
+  <div>
+    <h1 class="text-2xl font-semibold">Request a book</h1>
+  </div>
 
-<div class="gap-24 flex">
-  <div class="basis-3/5 h-96">
-    <div class="h-32 border rounded-xl p-7 flex place-items-center">
-      <div class="col-span-1">
-        <h4 class="font-medium pb-4">Good price.</h4>
-        <p>Your dates are R$47 less than the avg. nightly rate over the last 3 months.</p>
+  <%= render partial: "shared/flash_messages" %>
+  <div class="gap-24 flex">
+    <div class="basis-3/5 h-96">
+      <div class="h-32 border rounded-xl p-7 flex place-items-center">
+        <div class="col-span-1">
+          <h4 class="font-medium pb-4">Good price.</h4>
+          <p>Your dates are R$47 less than the avg. nightly rate over the last 3 months.</p>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="min-w w-10 ml-auto h-10">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z" />
+    <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6z" />
+        </svg>
       </div>
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="min-w w-10 ml-auto h-10">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z" />
-  <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6z" />
-      </svg>
-    </div>
 
+    
     <div class="mt-7 gap-7 grid rounded-xl">
       <h4 class="font-medium text-xl">Your trip</h4>
       <div class="grid grid-rows-2 grid-cols-2 gap-2">
         <p class="row-span-1 col-span-1 font-medium">Dates</p>
-        <p class="row-span-2 ml-auto col-span-1 underline font-medium hover:cursor-pointer">Edit</p>
-        <p class="row-span-1 col-span-1">Oct 23 - 29</p>
+        <p class="row-span-2 ml-auto col-span-1 underline font-medium hover:cursor-not-allowed text-slate-500">Edit</p>
+        <p class="row-span-1 col-span-1"><%= "#{params[:check_in_date]} - #{params[:checkout_date]}" %></p>
       </div>
       
       <div class="grid gap-2 grid-cols-2">
         <div class="grid grid-cols-2 col-span-2">
           <div class="col-span-1 font-medium">Guests</div>
-          <div class="ml-auto underline font-medium col-span-1 hover:cursor-pointer">Edit</div>
+          <div class="ml-auto underline font-medium col-span-1 text-slate-500 hover:cursor-not-allowed">Edit</div>
         </div>
         <div class="col-span-2">
-          <div class="col-span-1">3 guests, 2 infants, 4 pets</div>
+          <div class="col-span-1"><%= params[:guest_count] %></div>
           <div class="underline font-medium hover:cursor-pointer ml-auto col-span-1">Bringing a service animal?</div>
         </div>
       </div>
 
       <hr>
 
-      <%= link_to "Pay with Stripe", root_path, class:"transition hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 rounded p-5 text-center font-semibold max-w bg-indigo-500 text-white" %>
+      <%= form_with model: @booking, action: "create", id: 'create-booking' do |f| %>
+        <%= f.hidden_field :start_date, value: params[:check_in_date] %> 
+        <%= f.hidden_field :end_date, value: params[:checkout_date] %> 
+        <%= f.hidden_field :listing_id, value: params[:listing_id] %>
+        <%= f.hidden_field :guests, value: params[:guest_count] %>
+       <%= f.submit "Pay with stripe", class: "standard_b w-full hover:cursor-pointer" %>
+      <% end %>
     </div>
   </div>
 
