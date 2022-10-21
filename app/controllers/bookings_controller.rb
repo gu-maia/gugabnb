@@ -10,9 +10,10 @@ def create
   @listing = Listing.find(params[:booking][:listing_id])
 
   @booking = current_user.bookings_as_guest.new(booking_params)
+  @booking.update!(checkout_url: @booking.checkout_session_url)
 
   if @booking.save
-    redirect_to @booking.checkout_session_url, allow_other_host: true, status: :see_other
+    redirect_to @booking.checkout_url, allow_other_host: true, status: :see_other
   else
     flash[:errors] = @booking.errors.full_messages
     render :new, status: :unprocessable_entity
