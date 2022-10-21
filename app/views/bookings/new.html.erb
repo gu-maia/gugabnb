@@ -38,12 +38,12 @@
 
       <hr>
 
-      <%= form_with model: @booking, action: "create", id: 'create-booking' do |f| %>
+      <%= form_with model: @booking, action: "create", method: :post, id: 'create-booking' do |f| %>
         <%= f.hidden_field :start_date, value: params[:check_in_date] %> 
         <%= f.hidden_field :end_date, value: params[:checkout_date] %> 
         <%= f.hidden_field :listing_id, value: params[:listing_id] %>
         <%= f.hidden_field :guests, value: params[:guest_count] %>
-       <%= f.submit "Pay with stripe", class: "standard_b w-full hover:cursor-pointer" %>
+        <%= f.submit "Pay with stripe", data: { turbo: false }, class: "standard_b w-full hover:cursor-pointer" %>
       <% end %>
     </div>
   </div>

@@ -6,7 +6,8 @@ class Booking < ApplicationRecord
   has_one :host, through: :listing
 
   validate :guest_count_must_be_within_listing_limit
-  validate :no_booking_overlap
+  before_create :no_booking_overlap
+  before_create :set_payment_pending
 
   enum status: {
     inactive: 0,
@@ -15,6 +16,10 @@ class Booking < ApplicationRecord
     host_approval_and_payment_complete: 3,
     finished: 4
   }
+
+  def set_payment_pending
+    self.status = :pending_payment
+  end
 
   def no_booking_overlap
     errors.add(:base, "This period is not available. Check the listing calendar") if listing.bookings.where("? <= end_date and start_date <= ?", start_date, end_date).any?
@@ -36,8 +41,8 @@ class Booking < ApplicationRecord
     listing.maybe_create_stripe_product
 
     Stripe::Checkout::Session.create({
-                                       success_url: 'https://example.com/success',
-                                       cancel_url: 'https://example.com/cancel',
+      success_url: 'http://0.0.0.0:3000/bookings',
+      cancel_url: 'http://0.0.0.0:3000/bookings',
                                        line_items: [
                                          {
                                            price_data: {
