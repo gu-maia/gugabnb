@@ -6,7 +6,8 @@ class Booking < ApplicationRecord
   has_one :host, through: :listing
 
   validate :guest_count_must_be_within_listing_limit
-  validate :checkout_url, presence: true
+  validates :checkout_url, presence: true, on: :update
+
   before_create :no_booking_overlap
   before_create :set_payment_pending
 
