@@ -18,7 +18,9 @@ class User < ApplicationRecord
   end
 
   def ongoing_bookings(listing)
-    bookings_as_guest.where(listing: listing, status: [:pending_payment, :payment_approved, :host_approval_and_payment_complete])
+    bookings_as_guest.where(listing: listing,
+                            status: %i[pending_payment payment_approved
+                                       host_approval_and_payment_complete])
   end
 
   def stripe_attributes(pay_customer)

@@ -23,7 +23,9 @@ class Booking < ApplicationRecord
   end
 
   def no_booking_overlap
-    errors.add(:base, "This period is not available. Check the listing calendar") if listing.bookings.where("? <= end_date and start_date <= ?", start_date, end_date).any?
+    errors.add(:base, 'This period is not available. Check the listing calendar') if listing.bookings.where(
+      '? <= end_date and start_date <= ?', start_date, end_date
+    ).any?
   end
 
   def guest_count_must_be_within_listing_limit
@@ -42,8 +44,8 @@ class Booking < ApplicationRecord
     listing.maybe_create_stripe_product
 
     Stripe::Checkout::Session.create({
-      success_url: 'http://0.0.0.0:3000/bookings',
-      cancel_url: 'http://0.0.0.0:3000/bookings',
+                                       success_url: 'http://0.0.0.0:3000/bookings',
+                                       cancel_url: 'http://0.0.0.0:3000/bookings',
                                        line_items: [
                                          {
                                            price_data: {
