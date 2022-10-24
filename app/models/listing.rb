@@ -13,7 +13,8 @@ class Listing < ApplicationRecord
 
   enum status: {
     draft: 0,
-    archived: 1
+    archived: 1,
+    published: 2
   }
 
   def active_pricing

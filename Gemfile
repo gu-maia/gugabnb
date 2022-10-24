@@ -56,6 +56,7 @@ gem 'rubocop', '~> 1.36', require: false
 gem 'image_processing', '~> 1.2'
 
 group :development, :test do
+  gem 'factory_bot_rails'
   gem 'rspec-rails', '~> 6.0.0'
   gem 'awesome_print'
   gem 'faker'
