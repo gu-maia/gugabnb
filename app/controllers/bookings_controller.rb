@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class BookingsController < ApplicationController
   before_action :authenticate_user!
 
@@ -8,16 +10,14 @@ class BookingsController < ApplicationController
   def create
     @listing = Listing.find(params[:booking][:listing_id])
     @booking = current_user.bookings_as_guest.new(booking_params)
-    
+
     ActiveRecord::Base.transaction do
-      begin
-        @booking.save!
-        @booking.update!(checkout_url: @booking.checkout_session_url)
-        redirect_to @booking.checkout_url, allow_other_host: true, status: :see_other
-      rescue
-        flash[:errors] = @booking.errors.full_messages
-        render :new, status: :unprocessable_entity
-      end
+      @booking.save!
+      @booking.update!(checkout_url: @booking.checkout_session_url)
+      redirect_to @booking.checkout_url, allow_other_host: true, status: :see_other
+    rescue StandardError
+      flash[:errors] = @booking.errors.full_messages
+      render :new, status: :unprocessable_entity
     end
   end
 

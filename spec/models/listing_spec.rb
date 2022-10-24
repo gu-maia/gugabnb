@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Listing, type: :model do
@@ -8,7 +10,7 @@ RSpec.describe Listing, type: :model do
     it { should have_many(:reviews).dependent(:destroy) }
     it { should have_many(:bookings).dependent(:destroy) }
     it { should have_many_attached(:images) }
-  end  
+  end
   describe 'validations' do
     it { should validate_presence_of(:short_description) }
     it { should validate_numericality_of(:guests).only_integer }
@@ -17,6 +19,6 @@ RSpec.describe Listing, type: :model do
     user = build(:random_user)
     listing = user.listings.build(attributes_for(:random_listing))
 
-    expect(listing.status).to eq("draft")
+    expect(listing.status).to eq('draft')
   end
 end
