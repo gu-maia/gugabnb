@@ -57,6 +57,7 @@ gem 'image_processing', '~> 1.2'
 
 group :test do
   gem 'shoulda-matchers', '~> 5.0'
+  gem 'webmock'
 end
 group :development, :test do
   gem 'byebug'
