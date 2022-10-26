@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Pricing, type: :model do
@@ -6,7 +8,7 @@ RSpec.describe Pricing, type: :model do
     it { should validate_presence_of(:cleaning_fee) }
     it { should validate_presence_of(:listing) }
     it { should validate_presence_of(:status) }
-    it { should define_enum_for(:status).with([:active, :inactive]) }
+    it { should define_enum_for(:status).with(%i[active inactive]) }
   end
 
   it 'should convert to cents' do

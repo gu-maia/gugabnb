@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Review, type: :model do
@@ -10,5 +12,5 @@ RSpec.describe Review, type: :model do
     it { should validate_presence_of(:title) }
     it { should validate_length_of(:title).is_at_least(10).is_at_most(45) }
     it { should validate_length_of(:description).is_at_least(50).is_at_most(250) }
-end
+  end
 end

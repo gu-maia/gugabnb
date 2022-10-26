@@ -60,8 +60,8 @@ group :test do
   gem 'webmock'
 end
 group :development, :test do
-  gem 'byebug'
   gem 'awesome_print'
+  gem 'byebug'
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'rspec-rails', '~> 6.0.0'
@@ -70,11 +70,11 @@ group :development, :test do
 end
 
 group :development do
-  gem 'guard-rspec', require: false
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'guard'
   gem 'guard-livereload', '~> 2.5', require: false
+  gem 'guard-rspec', require: false
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem 'web-console'
 
