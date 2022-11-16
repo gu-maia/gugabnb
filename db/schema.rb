@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_16_154526) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_16_181601) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -60,6 +60,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_16_154526) do
     t.integer "guests"
     t.integer "status"
     t.string "checkout_url"
+    t.string "checkout_session_id"
     t.index ["guest_id"], name: "index_bookings_on_guest_id"
     t.index ["listing_id"], name: "index_bookings_on_listing_id"
   end
@@ -71,6 +72,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_16_154526) do
     t.string "event_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "error_message"
   end
 
   create_table "listings", force: :cascade do |t|

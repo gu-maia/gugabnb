@@ -6,7 +6,6 @@ class Booking < ApplicationRecord
   has_one :host, through: :listing
 
   validate :guest_count_must_be_within_listing_limit
-  validates :checkout_url, presence: true, on: :update
 
   before_create :no_booking_overlap
   before_create :set_payment_pending
@@ -44,7 +43,7 @@ class Booking < ApplicationRecord
   def checkout_session
     listing.maybe_create_stripe_product
 
-    Stripe::Checkout::Session.create({
+    checkout_session = Stripe::Checkout::Session.create({
                                        success_url: 'http://0.0.0.0:3000/bookings',
                                        cancel_url: 'http://0.0.0.0:3000/bookings',
                                        line_items: [
@@ -59,5 +58,7 @@ class Booking < ApplicationRecord
                                        ],
                                        mode: 'payment'
                                      })
+    self.update!(checkout_session_id: checkout_session.id)
+    checkout_session
   end
 end

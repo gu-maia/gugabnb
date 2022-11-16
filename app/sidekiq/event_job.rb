@@ -3,7 +3,8 @@
 class EventJob
   include Sidekiq::Job
 
-  def perform(event)
+  def perform(event_id)
+    event = Event.find(event_id)
     case event.source
     when "stripe"
         stripe_event = Stripe::Event.construct_from(
@@ -14,11 +15,19 @@ class EventJob
         event_type: stripe_event.type,
         error_message: "",
         status: :processed)
-    rescue => e
-      event.update(error_message: e.message, status: :failed)
     else
       event.update(
-        error_message: "Unknown source #{event.source}"
+        error_message: "Unknown source #{event.source}")
+    end 
+  end
+
+  def handle_stripe(stripe_event)
+    checkout_session = stripe_event.data.object
+    case stripe_event.type
+    when "checkout.session.completed"
+      booking = Booking.find_by_checkout_session_id(checkout_session.id)
+      booking.update(status: :payment_approved)
+    else
     end 
   end
 end

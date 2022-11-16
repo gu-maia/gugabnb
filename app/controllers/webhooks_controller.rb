@@ -8,6 +8,6 @@ class WebhooksController < ApplicationController
       request_body: request.raw_post,
       source: params[:source]
     )
-    EventJob.perform_now(event)
+    EventJob.perform_sync(event.id)
   end
 end
