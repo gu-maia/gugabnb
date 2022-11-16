@@ -32,7 +32,7 @@ class EventJob
     when 'charge.refunded'
       refund = checkout_session.refunds.data[0]
       booking = Booking.find_by_stripe_refund_id(refund.id)
-      booking.update(status: :refunded)   
+      booking.update(status: :refunded)
     end
   end
 end
