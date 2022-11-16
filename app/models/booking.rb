@@ -44,21 +44,21 @@ class Booking < ApplicationRecord
     listing.maybe_create_stripe_product
 
     checkout_session = Stripe::Checkout::Session.create({
-                                       success_url: 'http://0.0.0.0:3000/bookings',
-                                       cancel_url: 'http://0.0.0.0:3000/bookings',
-                                       line_items: [
-                                         {
-                                           price_data: {
-                                             currency: 'BRL',
-                                             product: listing.product_id,
-                                             unit_amount: listing.active_pricing.value_in_cents
-                                           },
-                                           quantity: distance_of_time_in_days
-                                         }
-                                       ],
-                                       mode: 'payment'
-                                     })
-    self.update!(checkout_session_id: checkout_session.id)
+                                                          success_url: 'http://0.0.0.0:3000/bookings',
+                                                          cancel_url: 'http://0.0.0.0:3000/bookings',
+                                                          line_items: [
+                                                            {
+                                                              price_data: {
+                                                                currency: 'BRL',
+                                                                product: listing.product_id,
+                                                                unit_amount: listing.active_pricing.value_in_cents
+                                                              },
+                                                              quantity: distance_of_time_in_days
+                                                            }
+                                                          ],
+                                                          mode: 'payment'
+                                                        })
+    update!(checkout_session_id: checkout_session.id)
     checkout_session
   end
 end
