@@ -15,7 +15,9 @@ class Booking < ApplicationRecord
     pending_payment: 1,
     payment_approved: 2,
     host_approval_and_payment_complete: 3,
-    finished: 4
+    processing_refund: 4,
+    cancelled: 5,
+    refunded: 6
   }
 
   def set_payment_pending
@@ -38,6 +40,12 @@ class Booking < ApplicationRecord
 
   def checkout_session_url
     checkout_session.url
+  end
+
+  def issue_refund
+    refund = Stripe::Refund.create(payment_intent: Booking.last.payment_intent_id)
+    update!(status: :processing_refund, stripe_refund_id: refund.id)
+    refund
   end
 
   def checkout_session

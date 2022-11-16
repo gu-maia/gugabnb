@@ -28,7 +28,11 @@ class EventJob
     case stripe_event.type
     when 'checkout.session.completed'
       booking = Booking.find_by_checkout_session_id(checkout_session.id)
-      booking.update(status: :payment_approved)
+      booking.update(status: :payment_approved, payment_intent_id: checkout_session.payment_intent)
+    when 'charge.refunded'
+      refund = checkout_session.refunds.data[0]
+      booking = Booking.find_by_stripe_refund_id(refund.id)
+      booking.update(status: :refunded)   
     end
   end
 end
