@@ -92,4 +92,4 @@ gem 'pg', '~> 1.4'
 gem 'pay', '~> 5.0'
 gem 'stripe', '~> 7.1'
 
-gem "sidekiq", "~> 7.0"
+gem 'sidekiq', '~> 7.0'
