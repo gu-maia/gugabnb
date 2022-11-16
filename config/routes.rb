@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'static_pages#index'
 
+  post 'webhooks/:source', to: 'webhooks#create'
   namespace :host do
     resources :listings
   end
