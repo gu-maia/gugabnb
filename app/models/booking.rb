@@ -44,7 +44,7 @@ class Booking < ApplicationRecord
   end
 
   def issue_refund
-    refund = Stripe::Refund.create(payment_intent: self.payment_intent_id)
+    refund = Stripe::Refund.create(payment_intent: payment_intent_id)
     update!(status: :processing_refund, stripe_refund_id: refund.id)
     refund
   end
