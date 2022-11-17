@@ -5,6 +5,7 @@ class Booking < ApplicationRecord
   belongs_to :guest, class_name: 'User'
   has_one :host, through: :listing
 
+  scope :as_guest, ->(id) { where(guest_id: id) }
   validate :guest_count_must_be_within_listing_limit
 
   before_create :no_booking_overlap
@@ -43,7 +44,7 @@ class Booking < ApplicationRecord
   end
 
   def issue_refund
-    refund = Stripe::Refund.create(payment_intent: Booking.last.payment_intent_id)
+    refund = Stripe::Refund.create(payment_intent: self.payment_intent_id)
     update!(status: :processing_refund, stripe_refund_id: refund.id)
     refund
   end

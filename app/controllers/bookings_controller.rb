@@ -4,7 +4,7 @@ class BookingsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @bookings = current_user.bookings_as_guest
+    @bookings = Booking.as_guest(current_user.id)
   end
 
   def create

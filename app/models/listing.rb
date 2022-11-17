@@ -18,7 +18,7 @@ class Listing < ApplicationRecord
   }
 
   def active_pricing
-    pricings.where(status: :active).first
+    pricings.active.first
   end
 
   def star_average
