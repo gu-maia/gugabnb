@@ -7,7 +7,8 @@ class Listing < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :bookings, dependent: :destroy
   has_many_attached :images
-
+  
+  delegate :active_pricing, to: :pricings
   validates :short_description, presence: true
   validates :guests, numericality: { only_integer: true, in: 1..100 }
 
@@ -16,10 +17,6 @@ class Listing < ApplicationRecord
     archived: 1,
     published: 2
   }
-
-  def active_pricing
-    pricings.active.first
-  end
 
   def star_average
     reviews.average(:stars).round(2).to_s

@@ -8,7 +8,7 @@ class Pricing < ApplicationRecord
   validates :listing, presence: true
   validates :status, presence: true
 
-  scope :active, ->{ where(status: :active) }
+  scope :active_pricing, ->{ where(status: :active).first }
 
   enum status: {
     active: 0,
