@@ -1,0 +1,65 @@
+<div class="price-area flex pb-6">
+  <div><span class="font-semibold text-xl"><%= "R$#{@listing.active_pricing.value.to_s}" %></span> night</div>
+
+  <span class="ml-auto flex font-medium place-items-center text-sm">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 mt-[2px]">
+      <path fill-rule="evenodd"
+        d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+        clip-rule="evenodd" />
+    </svg>
+    <span class="align-middle"><%= @listing.star_average %></span>
+    &nbsp;
+    &#183;
+    &nbsp;
+    <span class="underline underline-offset-1 text-slate-500 hover:cursor-pointer"><%= "#{@listing.review_count} reviews" %></span>
+  </span>
+</div>
+
+<form action="/bookings/new">
+  <div class="date-range-area grid grid-cols-2 grid-rows-2 pb-6">
+    <button type="button" class="border border-gray-400 rounded-tl-lg col-span-1 row-span-1">
+      <label class="text-[11px] font-semibold mr-auto">CHECK-IN</label>
+      <input type="date" name="check_in_date" class="text-sm text-slate-500 border-none leading-tight row-span-1 mr-auto"></input>
+    </button>
+    <button type="button"
+      class="p-3 border border-gray-400 rounded-tr-lg col-span-1 border-l-0 row-span-1">
+      <div class="text-[11px] font-semibold mr-auto">CHECKOUT</div>
+      <input type="date" name="checkout_date" class="text-sm text-slate-500 border-none leading-tight row-span-1 mr-auto">
+    </button>
+    <button type="button"
+      class="p-3 border border-gray-400 rounded-b-lg col-span-2 border-t-0 row-span-1 grid grid-cols-2 grid-rows-1">
+      <div class="col-span-1 row-span-1">
+        <div class="text-[11px] font-semibold flex">GUESTS</div>
+        <input type="number" name="guest_count" class="border-none" placeholder="guests">
+      </div>
+      <svg xmlns="http://www.w3.org/2000/svg" strokeWidth="1.5" viewBox="0 0 24 24" fill="currentColor"
+        class="w-4 h-4 mt-[2px] row-span-1 col-span-1 ml-auto place-self-center">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+      </svg>
+    </button>
+  </div>
+  <input type="hidden" name="listing_id" value="<%= @listing.id %>">
+  <div>
+    <%= button_to new_booking_path, target:"_blank", class: "w-full mb-3" do %>
+      <div class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Check availability</div>
+    <% end %>
+  </div>
+</form>
+
+
+<!-- If has a date range selected: -->
+
+<div>
+  <div class="grid grid-cols-2 grid-rows-3 gap-4 pb-6">
+    <span class="place-content-center col-span-2 row-span-1 place-self-center">You won't be charged yet</span>
+    <div class="col-span-1 underline hover:cursor-pointer row-span-1">R$ <%= @listing.active_pricing.value.to_s %>  x 3 nights</div>
+    <div class="col-span-1 underline hover:cursor-pointer row-span-1 ml-auto">R$ <%= @listing.active_pricing.value * 3 %></div>
+    <div class="col-span-1 underline hover:cursor-pointer row-span-1">Cleaning fee</div>
+    <div class="col-span-1 underline hover:cursor-pointer row-span-1 ml-auto">R$ <%= @listing.active_pricing.cleaning_fee %></div>
+  </div>
+  <hr class="pb-6">
+  <div class="flex place-content-between font-semibold">
+    <span>Total before taxes</span>
+    <span>R$ <%= (@listing.active_pricing.value * 3) + @listing.active_pricing.cleaning_fee %> </span>
+  </div>
+</div>
