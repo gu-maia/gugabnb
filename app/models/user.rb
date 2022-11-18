@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :listings
   has_many :reviews, through: :listings
+  has_many :bookings, class_name: 'Booking', foreign_key: 'guest_id'
 
   def full_name
     "#{first_name} #{last_name}"

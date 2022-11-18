@@ -9,7 +9,7 @@ class BookingsController < ApplicationController
 
   def create
     @listing = Listing.find(params[:booking][:listing_id])
-    @booking = current_user.bookings_as_guest.new(booking_params)
+    @booking = Booking.as_guest(current_user.id).new(booking_params)
 
     ActiveRecord::Base.transaction do
       @booking.save!
