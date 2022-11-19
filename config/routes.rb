@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     resources :listings
   end
 
+  post '/wishes', to: 'wishes#toggle_wish'
+
   resources :listings
   resources :bookings
 
