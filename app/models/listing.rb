@@ -6,6 +6,7 @@ class Listing < ApplicationRecord
   has_many :pricings, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_many :bookings, dependent: :destroy
+  has_many :wishes
   has_many_attached :images
 
   delegate :active_pricing, to: :pricings
