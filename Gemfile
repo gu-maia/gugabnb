@@ -93,3 +93,5 @@ gem 'pay', '~> 5.0'
 gem 'stripe', '~> 7.1'
 
 gem 'sidekiq', '~> 7.0'
+
+gem "noticed", "~> 1.6"
