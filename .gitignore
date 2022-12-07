@@ -39,3 +39,4 @@
 
 /config/credentials/development.key
 .env
+.byebug_history
