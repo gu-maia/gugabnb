@@ -34,6 +34,9 @@ class EventJob
       refund = checkout_session.refunds.data[0]
       booking = Booking.find_by_stripe_refund_id(refund.id)
       booking.update(status: :refunded)
+    when 'charge.failed'
+      PaymentDeniedNotification.with(booking: booking).deliver_later(booking.guest.email)
+      booking.update(status: :payment_denied)
     end
   end
 end

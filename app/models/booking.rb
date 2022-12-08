@@ -18,7 +18,8 @@ class Booking < ApplicationRecord
     host_approval_and_payment_complete: 3,
     processing_refund: 4,
     cancelled: 5,
-    refunded: 6
+    refunded: 6,
+    payment_denied: 7
   }
 
   def set_payment_pending

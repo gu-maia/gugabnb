@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Something wrong happened</h1>
+    <p>
+      Listing: <%= @booking.listing.short_description %><br>
+      Period: from <%= "#{@booking.start_date} to #{@booking.end_date}" %>
+    </p>
+    <p>
+    Your payment was <b>denied</b>, we won't try to charge you again. Feel free to try once more.
+    </p>
+    <p>Thanks for using GugaBNB and have a great day!</p>
+  </body>
+</html>
