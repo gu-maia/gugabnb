@@ -75,11 +75,11 @@ class Booking < ApplicationRecord
   end
 
   def send_payment_approved_notifications
-    BookingPendingHostApprovalNotification.with(host: host, booking: self).deliver_later(self.guest)
+    BookingPendingHostApprovalNotification.with(host: host, booking: self).deliver_later(guest)
 
-    PaymentApprovalNotification.with(host: host, booking: self).deliver_later(self.guest)
+    PaymentApprovalNotification.with(host: host, booking: self).deliver_later(guest)
   end
-  
+
   private
 
   def send_booking_created_notifications

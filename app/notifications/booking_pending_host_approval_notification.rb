@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 class BookingPendingHostApprovalNotification < Noticed::Base
   deliver_by :database
-  deliver_by :email, mailer: "BookingMailer", method: :booking_pending_approval_email
-  
+  deliver_by :email, mailer: 'BookingMailer', method: :booking_pending_approval_email
+
   param :booking
   param :host
 end
