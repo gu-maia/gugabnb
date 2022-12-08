@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hey, your booking was created succesfully</h1>
+    <p>
+      Listing: <%= @booking.listing.short_description %><br>
+      Period: from <%= "#{@booking.start_date} to #{@booking.end_date}" %>
+    </p>
+    <p>
+    Now you just have to wait.<br>
+    Once your payment is approved, the <b>host</b> must approve your booking request.<br>
+    After that, you're set!<br>
+    </p>
+    <p>Thanks for using GugaBNB and have a great day!</p>
+  </body>
+</html>

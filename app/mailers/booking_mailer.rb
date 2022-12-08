@@ -5,4 +5,10 @@ class BookingMailer < ApplicationMailer
 
     mail to: @booking.host.email, subject: "You have a new reservation"
   end
+
+  def booking_created_email
+    @booking = params[:booking]
+
+    mail to: @booking.guest.email, subject: "You have a new booking!"
+  end
 end
