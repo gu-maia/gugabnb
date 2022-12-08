@@ -11,8 +11,6 @@ class Booking < ApplicationRecord
   before_create :no_booking_overlap
   before_create :set_payment_pending
 
-  after_create_commit :notify_host
-
   enum status: {
     inactive: 0,
     pending_payment: 1,
@@ -73,9 +71,9 @@ class Booking < ApplicationRecord
     checkout_session
   end
 
-  private
-
-  def notify_host
+  def send_payment_approved_notifications
     BookingPendingHostApprovalNotification.with(host: host, booking: self).deliver_later(self.guest)
+
+    PaymentApprovalNotification.with(host: host, booking: self).deliver_later(self.guest)
   end
 end
