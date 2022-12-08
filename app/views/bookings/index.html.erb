@@ -1,5 +1,5 @@
 <% b = @bookings.first %>
-<% @bookings.each do |booking| %>
+<% @bookings.includes(:listing).each do |booking| %>
   <div class="flex gap-2 pb-7">
     <img src="<%= Faker::LoremFlickr.image(size: "130x110") %>" class="rounded-xl">
     <div class="grid">
