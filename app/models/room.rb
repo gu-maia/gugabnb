@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Room < ApplicationRecord
-  belongs_to :listing
+  belongs_to :listing, counter_cache: true
   has_many :beds, dependent: :destroy
 
   enum room_type: {
