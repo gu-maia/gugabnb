@@ -34,12 +34,17 @@
             </div>
           </button> 
           <div data-dropdown-target="menu" class="hidden mt-2 bg-white w-60 rounded-lg py-2 border absolute z-10">
+            <div class="font-medium pl-3 py-2 hover:bg-gray-100 my-auto items-center">Messages</div> 
+            <div class="font-medium pl-3 py-2 hover:bg-gray-100 my-auto items-center">Notifications</div> 
             <%= link_to bookings_path do %>
-              <div class="pl-3 py-2 hover:bg-gray-100 my-auto items-center">My Bookings</div> 
+              <div class="font-medium pl-3 py-2 hover:bg-gray-100 my-auto items-center">Trips</div> 
             <% end %>
+            <div class="font-medium pl-3 py-2 hover:bg-gray-100 my-auto items-center">Wishlist</div> 
+
             <%= link_to host_listings_path do %>
-              <div class="pl-3 py-2 hover:bg-gray-100 my-auto items-center">My Listings</div>
+              <div class="pl-3 py-2 hover:bg-gray-100 my-auto items-center">My Hostings</div>
             <% end %>
+
             <hr class="my-2">
 
             <% if user_signed_in? %>
