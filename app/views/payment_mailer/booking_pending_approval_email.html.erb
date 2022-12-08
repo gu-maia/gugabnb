@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hey, your listing was booked!</h1>
+    <p>
+      Listing: <%= @booking.listing.short_description %><br>
+      Period: from <%= "#{@booking.start_date} to #{@booking.end_date}" %>
+    </p>
+    <p>
+    The booking is pending approval, click <a href="#">here</a> to confirm.
+    </p>
+    <p>Thanks for using GugaBNB and have a great day!</p>
+  </body>
+</html>
