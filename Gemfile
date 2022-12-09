@@ -56,13 +56,13 @@ gem 'rubocop', '~> 1.36', require: false
 gem 'image_processing', '~> 1.2'
 
 group :test do
-  gem 'simplecov', require: false
   gem 'shoulda-matchers', '~> 5.0'
+  gem 'simplecov', require: false
   gem 'webmock'
 end
 group :development, :test do
-  gem 'bullet'
   gem 'awesome_print'
+  gem 'bullet'
   gem 'byebug'
   gem 'factory_bot_rails'
   gem 'faker'
@@ -72,15 +72,15 @@ group :development, :test do
 end
 
 group :development do
-  gem "rubycritic", require: false
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'guard'
   gem 'guard-livereload', '~> 2.5', require: false
   gem 'guard-rspec', require: false
+  gem 'rubycritic', require: false
   # Use console on exceptions pages [https://github.com/rails/web-console]
-  gem 'web-console'
   gem 'skunk'
+  gem 'web-console'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
@@ -98,6 +98,6 @@ gem 'stripe', '~> 7.1'
 
 gem 'sidekiq', '~> 7.0'
 
-gem "noticed", "~> 1.6"
+gem 'noticed', '~> 1.6'
 
-gem "rails-controller-testing", "~> 1.0"
+gem 'rails-controller-testing', '~> 1.0'
