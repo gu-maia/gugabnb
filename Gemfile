@@ -98,3 +98,5 @@ gem 'stripe', '~> 7.1'
 gem 'sidekiq', '~> 7.0'
 
 gem "noticed", "~> 1.6"
+
+gem "rails-controller-testing", "~> 1.0"
