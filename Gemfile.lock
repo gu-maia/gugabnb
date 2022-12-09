@@ -445,6 +445,7 @@ DEPENDENCIES
   redis (~> 4.0)
   rspec-rails (~> 6.0.0)
   rubocop (~> 1.36)
+  rubycritic
   shoulda-matchers (~> 5.0)
   sidekiq (~> 7.0)
   simplecov
