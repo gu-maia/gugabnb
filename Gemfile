@@ -56,6 +56,7 @@ gem 'rubocop', '~> 1.36', require: false
 gem 'image_processing', '~> 1.2'
 
 group :test do
+  gem 'simplecov', require: false
   gem 'shoulda-matchers', '~> 5.0'
   gem 'webmock'
 end
