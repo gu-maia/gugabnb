@@ -79,6 +79,7 @@ group :development do
   gem 'guard-rspec', require: false
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem 'web-console'
+  gem 'skunk'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
