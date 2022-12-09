@@ -60,6 +60,7 @@ group :test do
   gem 'webmock'
 end
 group :development, :test do
+  gem 'bullet'
   gem 'awesome_print'
   gem 'byebug'
   gem 'factory_bot_rails'
@@ -70,7 +71,6 @@ group :development, :test do
 end
 
 group :development do
-  gem 'bullet'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'guard'
