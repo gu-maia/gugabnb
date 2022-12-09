@@ -12,12 +12,12 @@ RSpec.describe Pricing, type: :model do
   end
 
   it 'should convert to cents' do
-    pricing_25 = build(:pricing, value: 25)
+    pricing1 = build(:pricing, value: 25)
 
-    expect(pricing_25.value_in_cents).to eq(2500)
+    expect(pricing1.value_in_cents).to eq(2500)
 
-    pricing_50_50 = build(:pricing, value: 50.50)
+    pricing2 = build(:pricing, value: 50.50)
 
-    expect(pricing_50_50.value_in_cents).to eq(5050)
+    expect(pricing2.value_in_cents).to eq(5050)
   end
 end
