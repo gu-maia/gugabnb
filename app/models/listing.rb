@@ -27,12 +27,12 @@ class Listing < ApplicationRecord
     reviews.size
   end
 
-  def maybe_create_stripe_product(activity_status = true)
+  def maybe_create_stripe_product
     return unless product_id.blank?
 
     response = Stripe::Product.create({
                                         name: "listing_#{id}",
-                                        active: activity_status,
+                                        active: true,
                                         metadata: {
                                           listing_id: id
                                         }
