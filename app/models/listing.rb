@@ -20,6 +20,8 @@ class Listing < ApplicationRecord
   }
 
   def star_average
+    return 0 unless reviews.any?
+
     reviews.average(:stars).round(2).to_s
   end
 
