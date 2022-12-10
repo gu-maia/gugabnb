@@ -3,7 +3,16 @@ AllCops:
     - 'db/**/*'
     - 'config/**/*'
     - 'bin/**/*'
+    - 'Guardfile'
 
 Metrics/BlockLength:
   Max: 25
   IgnoredMethods: ['describe', 'context']
+
+Documentation:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 120
+  Exclude:
+    - "app/helpers/*"
