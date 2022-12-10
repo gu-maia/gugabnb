@@ -5,6 +5,7 @@ RSpec.describe WishesController, type: :controller do
   before do
     @user = create(:random_user)
     sign_in(@user)
+    routes.draw { get 'toggle_wish' => 'wishes#toggle_wish' }
   end
 
   describe 'wished status should be toggled' do
