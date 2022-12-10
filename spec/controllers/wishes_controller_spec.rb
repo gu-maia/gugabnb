@@ -13,7 +13,7 @@ RSpec.describe WishesController, type: :controller do
     let(:listing2) { create(:listing, user_id: @user.id) }
     let!(:false_wish) { create(:wish, wished: false, listing_id: listing.id, user_id: @user.id) }
     let!(:true_wish) { create(:wish, wished: true, listing_id: listing2.id, user_id: @user.id) }
-    it 'should toggle the wish status' do
+    it 'should toggle to true' do
       post :toggle_wish, params: { params: { listing_id: listing.id } }
       response_body = JSON.parse(response.body)
       expect(response_body.keys).to match(%w[user_id wished id listing_id created_at updated_at])
@@ -22,7 +22,7 @@ RSpec.describe WishesController, type: :controller do
       expect(response_body['listing_id']).to eq(listing.id)
     end
 
-    it 'should toggle the wish status' do
+    it 'should toggle to false' do
       post :toggle_wish, params: { params: { listing_id: listing2.id } }
       response_body = JSON.parse(response.body)
       expect(response_body.keys).to match(%w[user_id wished id listing_id created_at updated_at])
