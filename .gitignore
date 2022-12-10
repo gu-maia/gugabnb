@@ -41,3 +41,4 @@
 .env
 .byebug_history
 coverage
+/dump.rdb
